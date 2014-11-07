@@ -1,0 +1,16 @@
+#sentence { 
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+input.transcription, input.translation { 
+  flex: 1;
+  margin: 1em 0 0;
+  width: 80%;
+  font-size: large;
+  line-height: 1.5;
+}
+
