@@ -1,12 +1,12 @@
 var 
   text = [],
   sentenceForm       = document.querySelector('form'),
-  textDiv            = document.querySelector('#text'),
+  textNode            = document.querySelector('#text'),
   transcriptionInput = document.querySelector('input.transcription'),
   translationInput   = document.querySelector('input.translation');
 
 sentenceForm.addEventListener('submit', function(submitEvent){
-  submitEvent.preventDefault();   // otherwise we leave the page
+  submitEvent.preventDefault();   
 
   var sentence = {
     transcription: transcriptionInput.value,
@@ -18,8 +18,13 @@ sentenceForm.addEventListener('submit', function(submitEvent){
   this.reset();
   transcriptionInput.focus();
 
+  renderText();
 });
 
 function renderText(){
-  
+  textNode.innerHTML = '';
+  text.forEach(function(sentence){
+    var eg = render('#sentenceTemplate', sentence)
+    textNode.appendChild(eg);
+  })   
 }

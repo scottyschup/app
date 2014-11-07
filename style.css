@@ -14,3 +14,9 @@ input.transcription, input.translation {
   line-height: 1.5;
 }
 
+#text .sentence p:first-child { 
+  font-weight:bold;
+}
+
+#text .sentence p:nth-child(1) { 
+}
