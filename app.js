@@ -1,9 +1,22 @@
 var 
   text = [],
   sentenceForm       = document.querySelector('form'),
-  textNode            = document.querySelector('#text'),
+  textNode           = document.querySelector('#text'),
   transcriptionInput = document.querySelector('input.transcription'),
   translationInput   = document.querySelector('input.translation');
+
+function render(templateSelector, data){
+  var 
+    fields = Object.keys(data),
+    template = document.querySelector(templateSelector),
+    node = document.importNode(template.content, true);
+  
+  fields.forEach(function(field){
+    node.querySelector('.' + field).textContent = data[field]
+  })
+
+  return node;
+}
 
 sentenceForm.addEventListener('submit', function(submitEvent){
   submitEvent.preventDefault();   

@@ -1,17 +1,3 @@
-function render(templateSelector, data){
-  var 
-    fields = Object.keys(data),
-    template = document.querySelector(templateSelector),
-    node = document.importNode(template.content, true);
-  
-  fields.forEach(function(field){
-    node.querySelector('.' + field).textContent = data[field]
-  })
-
-  return node;
-}
-
-
 /*
 
 This simple approach to creating "views":
@@ -57,3 +43,4 @@ var eg = render('#sentenceTemplate', {
 
 document.querySelector('#text').appendChild(eg);
 */
+
