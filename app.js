@@ -18,6 +18,20 @@ function render(templateSelector, data){
   return node;
 }
 
+function save(){
+  localStorage.text = JSON.stringify(text);
+}
+
+function loadText(){
+  if(localStorage.text){
+    text = JSON.parse(localStorage.text);
+  } else { 
+    text = [];
+    localStorage.text = JSON.stringify(text);
+  }
+  renderText();
+}
+
 sentenceForm.addEventListener('submit', function(submitEvent){
   submitEvent.preventDefault();   
 
@@ -31,6 +45,7 @@ sentenceForm.addEventListener('submit', function(submitEvent){
   this.reset();
   transcriptionInput.focus();
 
+  save();
   renderText();
 });
 
@@ -41,3 +56,5 @@ function renderText(){
     textNode.appendChild(eg);
   })   
 }
+
+window.addEventListener('load', loadText);
